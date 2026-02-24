@@ -2,7 +2,7 @@
 
 Interactive player report cards + full analytics notebook for ESPN's Top 500 college basketball scorers.
 
-**[→ View the interactive app](https://justin-alger.github.io/cbb-player-analysis/cbb_player_cards.html)**
+**[→ View the interactive app](https://justin-alger.github.io/CBB-Player-Analysis/cbb_player_cards.html)**
 
 ---
 
