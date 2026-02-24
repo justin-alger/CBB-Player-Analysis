@@ -1,8 +1,10 @@
 # 🏀 NCAA Scoring Analytics — 2025-26 Season
 
-Interactive player report cards + full analytics notebook for ESPN's Top 500 college basketball scorers.
+Interactive player report cards + full analytics notebook for ESPN's Top 500 college basketball scorers. 
 
-**[→ View the interactive app](https://justin-alger.github.io/CBB-Player-Analysis/cbb_player_cards.html)**
+>*Does the box score tell the full story? We built a framework to find out.*
+
+**[→ View the Interactive Player Dashboard](https://justin-alger.github.io/CBB-Player-Analysis/cbb_player_cards.html)**
 
 ---
 
@@ -19,27 +21,69 @@ Interactive player report cards + full analytics notebook for ESPN's Top 500 col
 | `cbb_enriched_final.csv` | Enriched dataset with archetypes + efficiency scores |
 
 ---
+## What This Is
 
-## Projects
+An analytics deep-dive into ESPN's top 500 college basketball scorers, built to answer two questions:
 
-### Project 1 — Scoring Archetypes (K-Means Clustering)
-Clusters 500 players by *how* they score, not how many points they put up. Features: 3PA rate, FTA rate, FG%, 3P%, FT%, True Shooting%.
+1. **How do elite scorers actually differ from each other?** Not in how many points they score — but in *how* they produce them.
+2. **Who is the country overrating — and who is flying completely under the radar?**
 
-- **Stage 1:** Elbow + silhouette methods select k=2 (statistically optimal)
-- **Stage 2:** Analyst override to k=4 for richer, scouting-ready archetypes
-
-| Archetype | n | Identity |
-|-----------|---|----------|
-| 🔴 Paint Dominators | 43 | Interior scorers, highest FG% (~58%) |
-| 🟢 Versatile Playmakers | 150 | Most complete scorers, highest TS% (~62%) |
-| 🟠 Shot Creators | 158 | High-usage guards, below-avg efficiency |
-| 🔵 Perimeter Snipers | 149 | 3-point specialists, best FT% (~84%) |
-
-### Project 2 — Scoring Efficiency Index
-Composite efficiency score (TS% + PPM + FTA Rate + AST/TO) vs. PPG rank.
-
-**Key finding:** Jordan Riley (#2 PPG nationally) ranks **#299** in efficiency — a 297-position gap. Logan Duncomb (#56 PPG) ranks **#2** in efficiency.
+The result is an interactive dashboard where you can pull up any of 500 players, see their full scoring profile, and compare them head-to-head.
 
 ---
 
-*Data: ESPN Men's College Basketball, scraped 2026-02-23 · Analysis: Python 3, scikit-learn, matplotlib*
+## The Dashboard
+
+**[→ Open it here](https://justin-alger.github.io/CBB-Player-Analysis/cbb_player_cards.html)**
+
+Every player card shows:
+- Full shooting profile: FG%, 3P%, FT%, True Shooting %
+- Shot selection fingerprint: how often they attack the rim vs. shoot threes
+- Efficiency rank vs. PPG rank: are they more or less valuable than their scoring average suggests?
+- Radar chart vs. their archetype average
+- Scout-style narrative summary
+
+**Features:**
+- 🔍 Search any player or school
+- 🎯 Filter by scoring archetype
+- ↕️ Sort by PPG, efficiency, True Shooting%, biggest overrated/underrated gaps
+- ⚖️ Compare any two players side by side
+
+---
+
+## The Four Scoring Archetypes
+
+Players were clustered using K-Means on shot selection and efficiency metrics — not raw scoring volume. Four distinct profiles emerged:
+
+| | Archetype | Identity |
+|--|-----------|----------|
+| 🔴 | **Paint Dominators** | Interior-first. Highest FG%. Rarely shoots threes. |
+| 🟢 | **Versatile Playmakers** | The most complete scorers. Elite True Shooting%. Balanced from every zone. |
+| 🟠 | **Shot Creators** | High-usage guards. Score in volume — but efficiency lags. |
+| 🔵 | **Perimeter Snipers** | Three-point specialists. Best FT%. Rarely attacks the rim. |
+
+---
+
+## Key Findings
+
+**The #2 scorer in the country might overrated...**
+Jordan Riley (ECU) averages 23.6 PPG — but ranks #299 out of 500 in composite efficiency. High volume, lower quality.
+
+**The most efficient scorer you've never heard of.**
+Logan Duncomb (Winthrop) ranks #56 in PPG but **#2 in efficiency** across all 500 players. 59.5% FG, elite rim presence, criminally underexposed.
+
+**Efficiency and volume only agree at the very top.**
+Cameron Boozer (Duke) is the rare case where PPG rank (#5) and efficiency rank (#5) are identical. What you see really is what you get.
+
+---
+
+## Methodology (Summary)
+
+- **Clustering:** K-Means on six shot-profile and efficiency features. Optimal k evaluated via elbow method and silhouette scoring.
+- **Efficiency Score:** Composite of True Shooting %, Points Per Minute, FT Attempt Rate, and AST/TO Ratio — each z-score normalised and equally weighted.
+- **Rank Delta:** PPG Rank − Efficiency Rank. Positive = underrated. Negative = overrated.
+- **Data:** ESPN Men's College Basketball, scraped February 2026. 500 players, 305 programs.
+
+---
+
+*Built as part of an ongoing sports analytics series. Catch up with me on [LinkedIn](https://www.linkedin.com/in/justin-alger/).*
