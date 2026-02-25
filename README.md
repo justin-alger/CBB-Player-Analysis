@@ -12,7 +12,7 @@ Interactive player report cards + full analytics notebook for ESPN's Top 500 col
 
 | File | Description |
 |------|-------------|
-| `cbb_player_cards.html` | **Self-contained interactive web app**: player report cards, archetype filter, compare mode |
+| `cbb_player_cards_v2.html` | **Self-contained interactive web app**: player report cards, archetype filter, compare mode |
 | `cbb_analytics_combined.ipynb` | Full Jupyter notebook: k=2 & k=4 clustering, efficiency index, all charts |
 | `cbb_final_visuals.py` | Key visuals: report cards, leaderboard, case study |
 | `espn-cbb top players ppg-2026-02-23.csv` | Raw scraped ESPN data (500 players) |
