@@ -4,7 +4,7 @@ Interactive player report cards + full analytics notebook for ESPN's Top 500 col
 
 >*Does the box score tell the full story? I built a framework to find out.*
 
-**[→ View the Interactive Player Dashboard](https://justin-alger.github.io/CBB-Player-Analysis/cbb_player_cards.html)**
+**[→ View the Interactive Player Dashboard](https://justin-alger.github.io/CBB-Player-Analysis/cbb_player_cards_v2.html)**
 
 ---
 
@@ -32,7 +32,7 @@ The result is an interactive dashboard where you can pull up any of the 500 play
 
 ## The Dashboard
 
-**[→ Open it here](https://justin-alger.github.io/CBB-Player-Analysis/cbb_player_cards.html)**
+**[→ Open it here](https://justin-alger.github.io/CBB-Player-Analysis/cbb_player_cards_v2.html)**
 
 Every player card shows:
 - Full shooting profile: FG%, 3P%, FT%, True Shooting %
